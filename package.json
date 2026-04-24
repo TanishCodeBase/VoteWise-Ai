@@ -1,16 +1,13 @@
 {
-  "name": "promptwars-challange-2",
+  "name": "votewise-ai",
   "version": "1.0.0",
-  "description": "An interactive assistant designed to guide users through the election process efficiently and securely. This project is highly optimized for AI evaluation scoring, focusing on clean architecture, security, accessibility, testability, and service integration.",
-  "main": "app.js",
-  "directories": {
-    "test": "tests"
-  },
+  "description": "AI-powered interactive election assistant",
+  "type": "module",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module"
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
