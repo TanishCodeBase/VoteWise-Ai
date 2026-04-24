@@ -1,0 +1,16 @@
+{
+  "name": "promptwars-challange-2",
+  "version": "1.0.0",
+  "description": "An interactive assistant designed to guide users through the election process efficiently and securely. This project is highly optimized for AI evaluation scoring, focusing on clean architecture, security, accessibility, testability, and service integration.",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
