@@ -2,8 +2,6 @@ import { getDecision } from './engine/decision.js';
 import { sanitize } from './engine/utils.js';
 import { electionSteps } from './config/steps.js';
 import { initializeFirebase, logToFirebase } from './services/firebase.js';
-import './tests/test.js';
-import { runTests } from './tests/test.js';
 
 class App {
     constructor() {
@@ -26,10 +24,14 @@ class App {
 
     init() {
         initializeFirebase();
+
+        this.triggerFirebaseSync({
+            action: "app_loaded"
+        });
+
         this.renderStepList();
         setInterval(() => this.updateSyncTimer(), 1000);
 
-        runTests();
     }
 
     renderStepList() {
@@ -72,22 +74,10 @@ class App {
 
         this.updateUI();
 
-        // Log state change
         this.triggerFirebaseSync({
             action: "state_changed",
             state: this.currentState,
-            timestamp: new Date().toISOString()
-        });
-
-        // Log decision generation separately
-        this.triggerFirebaseSync({
-            action: "decision_generated",
             decision: this.currentDecision,
-            timestamp: new Date().toISOString()
-        });
-
-        this.triggerFirebaseSync({
-            action: "step_transition",
             next_step: this.currentDecision.nextStep
         });
     }
@@ -160,7 +150,7 @@ class App {
     proceedToNextStep() {
         if (this.currentDecision && this.currentDecision.nextStep) {
             this.triggerFirebaseSync({
-                action: "proceed_clicked",
+                action: "next_step_clicked",
                 from_state: this.currentState,
                 to_step: this.currentDecision.nextStep
             });
