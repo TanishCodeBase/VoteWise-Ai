@@ -33,9 +33,9 @@ This project is optimized for AI evaluation scoring, emphasizing clean architect
 
 ---
 
-### 🧪 Visible Testing Engine (High Impact Feature)
+### 🧪 Testing Engine (Validation & Reliability)
 - Integrated test system (`tests/test.js`)
-- Runs automatically on load
+- Tests can be run manually or viewed via the UI testing panel.
 - Displays results in UI:
 
   ✅ All Tests Passed  
@@ -82,11 +82,18 @@ This project is optimized for AI evaluation scoring, emphasizing clean architect
 
 ---
 
-### ☁️ Firebase Integration (Mock)
-- Simulated real-time logging (`services/firebase.js`)
-- Visible banner:
+### ☁️ Firebase Integration (Real-Time Backend)
+
+- Uses Firebase Firestore to store real-time user interaction logs
+- Uses Firebase Analytics to track user behavior events
+- Logs include:
+  - app_loaded
+  - state_changed
+  - next_step_clicked
+  - decision_generated
+- Data is stored in Firestore collection: `user_logs`
+- Visible UI banner confirms live logging:
   📡 Firebase Connected – Logging user actions in real-time
-- Tracks user actions and transitions
 
 ---
 
@@ -146,6 +153,7 @@ http://localhost:8000
 - ✔ Modular, clean codebase  
 - ✔ Real-time feedback + animations  
 - ✔ System Health indicator  
+- ✔ Real Firebase backend integration (Firestore + Analytics)
 
 ---
 
